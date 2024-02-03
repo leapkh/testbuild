@@ -46,7 +46,7 @@ public class AccountFragment extends Fragment {
         showLoading();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2")
+                .baseUrl("https://smlp-pub.s3.ap-southeast-1.amazonaws.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
