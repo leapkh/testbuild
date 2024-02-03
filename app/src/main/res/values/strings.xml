@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Visit Me</string>
+
+    <!-- Menu -->
+    <string name="home">Home</string>
+    <string name="provinces">Provinces</string>
+    <string name="search">Search</string>
+    <string name="account">Account</string>
+    <string name="more">More</string>
+
+    <string name="about">About</string>
+    <string name="photos">Photos</string>
+    <string name="reviews">Reviews</string>
+    <string name="related_places">Related Places</string>
+
+    <string name="search_places">Search places</string>
+    <string name="recent_searches">Recent Searches</string>
+    <string name="trendings">Trendings</string>
+    <string name="advanced_search">Advanced Search</string>
+    <string name="msg_cant_find_your_desired_place">Can\'t find your desired place?</string>
+    <string name="try_advanced_search">Try Advanced Search</string>
+
+    <string name="language">Language</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="setting">Setting</string>
+
+</resources>
