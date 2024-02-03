@@ -86,8 +86,4 @@ public class AccountFragment extends Fragment {
         progressDialog.dismiss();
     }
 
-    private void showDialog() {
-
-    }
-
 }
