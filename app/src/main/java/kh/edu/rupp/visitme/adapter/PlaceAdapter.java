@@ -20,6 +20,16 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
 
     private List<Place> dataSet;
 
+    private RecyclerViewItemListener listener;
+
+    public void setListener(RecyclerViewItemListener listener) {
+        this.listener = listener;
+    }
+
+    public Place getItem(int index) {
+        return dataSet.get(index);
+    }
+
     @NonNull
     @Override
     public PlaceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,6 +41,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
         holder.bind(dataSet.get(position));
+        holder.itemView.setOnClickListener( v -> {
+            listener.onItemClick(position);
+        });
     }
 
     @Override

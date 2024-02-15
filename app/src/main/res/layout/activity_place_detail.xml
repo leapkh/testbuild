@@ -15,6 +15,7 @@
             android:layout_height="240dp">
 
             <ImageView
+                android:id="@+id/imgPlace"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -28,6 +29,7 @@
                 android:paddingHorizontal="16dp">
 
                 <ImageView
+                    android:id="@+id/imgBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -106,6 +108,7 @@
 
         <!-- Place Name -->
         <TextView
+            android:id="@+id/txtPlaceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"

@@ -1,5 +1,6 @@
 package kh.edu.rupp.visitme.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import kh.edu.rupp.visitme.activity.PlaceDetailActivity;
 import kh.edu.rupp.visitme.adapter.PlaceAdapter;
+import kh.edu.rupp.visitme.adapter.RecyclerViewItemListener;
 import kh.edu.rupp.visitme.api.ApiService;
 import kh.edu.rupp.visitme.databinding.FragmentHomeBinding;
 import kh.edu.rupp.visitme.model.Place;
@@ -93,6 +96,10 @@ public class HomeFragment extends Fragment {
     private void displayNearMePlaces(List<Place> places) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
         PlaceAdapter adapter = new PlaceAdapter(places);
+        adapter.setListener(index -> {
+            Place place = adapter.getItem(index);
+            startPlaceDetailActivity(place);
+        });
         binding.rclNearMe.setLayoutManager(layoutManager);
         binding.rclNearMe.setAdapter(adapter);
 
@@ -101,9 +108,18 @@ public class HomeFragment extends Fragment {
     private void displayTopPlaces(List<Place> places) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
         PlaceAdapter adapter = new PlaceAdapter(places);
+        adapter.setListener(index -> {
+            Place place = adapter.getItem(index);
+            startPlaceDetailActivity(place);
+        });
         binding.rclTopPlaces.setLayoutManager(layoutManager);
         binding.rclTopPlaces.setAdapter(adapter);
 
+    }
+
+    private void startPlaceDetailActivity(Place place) {
+        Intent intent = PlaceDetailActivity.newIntent(requireContext(), place);
+        startActivity(intent);
     }
 
 }
