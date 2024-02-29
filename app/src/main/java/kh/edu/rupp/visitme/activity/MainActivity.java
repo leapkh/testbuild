@@ -12,6 +12,7 @@ import kh.edu.rupp.visitme.R;
 import kh.edu.rupp.visitme.databinding.ActivityMainBinding;
 import kh.edu.rupp.visitme.fragment.AccountFragment;
 import kh.edu.rupp.visitme.fragment.HomeFragment;
+import kh.edu.rupp.visitme.fragment.HomeFragmentKotlin;
 import kh.edu.rupp.visitme.fragment.MoreFragment;
 import kh.edu.rupp.visitme.fragment.ProvincesFragment;
 import kh.edu.rupp.visitme.fragment.SearchFragment;
@@ -29,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Bind UI
-        showFragment(new HomeFragment());
+        showFragment(new HomeFragmentKotlin());
 
         // Setup listener
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()) {
                 case R.id.mnuHome:
-                    showFragment(new HomeFragment());
+                    showFragment(new HomeFragmentKotlin());
                     break;
                 case R.id.mnuProvinces:
                     showFragment(new ProvincesFragment());
