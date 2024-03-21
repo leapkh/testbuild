@@ -4,8 +4,8 @@ stages:
   - build
 
 build_apk:
-  - stage: build
-  - only:
-      - /^(uat|prd)-\d(\.\d{1}){2}/
-  - script:
-      - echo 'Hello world, I will run the job'
+  stage: build
+  only:
+    - /^(uat|prd)-\d(\.\d{1}){2}/
+  script:
+    - echo 'Hello world, I will run the job'
