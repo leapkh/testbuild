@@ -18,10 +18,59 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions 'VisitMe'
+    productFlavors {
+        free {
+            dimension 'VisitMe'
+            applicationId 'kh.edu.rupp.visitme'
+            resValue 'string', 'app_name', 'Visit Me'
+            buildConfigField 'boolean', 'isPro', 'false'
+            buildConfigField 'String', 'apiUrl', '"https://free.ruppfe.com/api/"'
+        }
+        pro {
+            dimension 'VisitMe'
+            applicationId 'kh.edu.rupp.visitme.pro'
+            resValue 'string', 'app_name', 'Visit Me Pro'
+            buildConfigField 'boolean', 'isPro', 'true'
+            buildConfigField 'String', 'apiUrl', '"https://pro.ruppfe.com/api/"'
+        }
+        uat {
+            dimension 'VisitMe'
+            applicationId 'kh.edu.rupp.visitme'
+            resValue 'string', 'app_name', 'Visit Me UAT'
+            buildConfigField 'boolean', 'isPro', 'false'
+            buildConfigField 'String', 'apiUrl', '"https://smlp-pub.s3.ap-southeast-1.amazonaws.com/api-test/"'
+        }
+        prd {
+            dimension 'VisitMe'
+            applicationId 'kh.edu.rupp.visitme'
+            resValue 'string', 'app_name', 'Visit Me'
+            buildConfigField 'boolean', 'isPro', 'false'
+            buildConfigField 'String', 'apiUrl', '"https://smlp-pub.s3.ap-southeast-1.amazonaws.com/api/"'
+        }
+    }
+
+    signingConfigs {
+        releasePrd {
+            storeFile file('visit-me.jks')
+            storePassword '111111'
+            keyAlias 'visit-me'
+            keyPassword '111111'
+        }
+        releaseUat {
+            storeFile file('visit-me-uat.jks')
+            storePassword '222222'
+            keyAlias 'visit-me-uat'
+            keyPassword '222222'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            productFlavors.uat.signingConfig signingConfigs.releaseUat
+            productFlavors.prd.signingConfig signingConfigs.releasePrd
         }
     }
     compileOptions {

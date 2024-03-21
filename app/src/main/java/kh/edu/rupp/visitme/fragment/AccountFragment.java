@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.squareup.picasso.Picasso;
 
+import kh.edu.rupp.visitme.BuildConfig;
 import kh.edu.rupp.visitme.api.ApiService;
 import kh.edu.rupp.visitme.databinding.FragmentAccountBinding;
 import kh.edu.rupp.visitme.databinding.FragmentSearchBinding;
@@ -46,7 +47,7 @@ public class AccountFragment extends Fragment {
         showLoading();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://smlp-pub.s3.ap-southeast-1.amazonaws.com/api/")
+                .baseUrl(BuildConfig.apiUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
