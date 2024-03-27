@@ -8,4 +8,12 @@ build_apk:
   only:
     - /^(uat|prd)-\d(\.\d{1}){2}/
   script:
-    - echo 'Hello world, I will run the job'
+    - ./gradlew assembleUatRelease
+    - apkDir="app/build/outputs/apk/uat/release"
+    - apkMetaFile="$apkDir/output-metadata.json"
+    - apkFile=$(cat $apiMetaFile | jq -r '.elements[0].outputFile')
+    - cp "$apiDir/$apkFile" "visit-me.apk"
+    - echo "Done"
+  artifacts:
+    paths:
+      - visit-me.apk
