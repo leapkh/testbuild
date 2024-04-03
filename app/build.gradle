@@ -71,6 +71,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             productFlavors.uat.signingConfig signingConfigs.releaseUat
             productFlavors.prd.signingConfig signingConfigs.releasePrd
+            productFlavors.free.signingConfig signingConfigs.releasePrd
+            productFlavors.pro.signingConfig signingConfigs.releasePrd
         }
     }
     compileOptions {
